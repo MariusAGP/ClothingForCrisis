@@ -1,25 +1,142 @@
 <div class="container">
   <div class="row mt-5 d-flex justify-content-center">
-    <div class="col-5">
-      <h2>Add Donation:</h2>
+    <div class="col-lg-5 col-md-5 col-sm-8 col-xs-8">
+      <h2>Clothing:</h2>
+      <mat-divider class="custom-mat-divider"></mat-divider>
       <form [formGroup]="form">
         <div class="row">
           <div class="col-12 d-flex justify-content-center">
-            <mat-slide-toggle color="primary" formControlName="isPickUp">
-              <div>Pick Up</div>
-            </mat-slide-toggle>
+            <mat-radio-group formControlName="isPickUp">
+              <mat-radio-button color="primary" [value]="true">Pick up</mat-radio-button>
+              <mat-radio-button color="primary" [value]="false">Hand over</mat-radio-button>
+            </mat-radio-group>
           </div>
         </div>
 
         <div class="row mt-3">
           <div class="col-12 d-flex justify-content-center">
-            <mat-form-field>
+            <mat-form-field class="w-100">
               <mat-label>Crisis Country</mat-label>
               <mat-select formControlName="crisisCountry" placeholder="Select country">
                 <mat-option *ngFor="let crisisCountry of crisisCountries" [value]="crisisCountry">
                   {{crisisCountry}}
                 </mat-option>
               </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <ng-container formArrayName="clothes">
+          <ng-container *ngFor="let clothingForm of clothesFormArray.controls; let i = index">
+            <div class="row mt-3" [formGroupName]="i">
+              <div class="col-4">
+                <mat-form-field class="w-100">
+                  <mat-label>Quantity</mat-label>
+                  <input formControlName="quantity" matInput type="number">
+                </mat-form-field>
+              </div>
+              <div class="col-6">
+                <mat-form-field class="w-100">
+                  <mat-label>Clothing type</mat-label>
+                  <mat-select formControlName="type" placeholder="Select clothing type">
+                    <mat-option [disabled]="checkIfClothingTypeAlreadySelected(clothingType)" *ngFor="let clothingType of clothingTypes" [value]="clothingType">
+                      {{clothingType}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-2">
+                <button (click)="removeClothingFormGroupAtIndex(i)"
+                        [disabled]="clothesFormArray.length === 1"
+                        type="button"
+                        mat-icon-button>
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+
+        <div class="row">
+          <div class="col-2">
+            <button (click)="addClothingFormGroup()"
+                    [disabled]="clothesFormArray.length === 5"
+                    type="button"
+                    mat-icon-button>
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <h2>Personal details</h2>
+            <mat-divider class="custom-mat-divider"></mat-divider>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <mat-form-field class="w-100">
+              <mat-label>Name</mat-label>
+              <input formControlName="name" autocomplete="given-name" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <mat-form-field class="w-100">
+              <mat-label>Lastname</mat-label>
+              <input formControlName="lastName" autocomplete="family-name" matInput>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-12">
+            <mat-form-field class="w-100">
+              <mat-label>Street and house number</mat-label>
+              <input formControlName="street"
+                     autocomplete="street-address"
+                     matInput>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            <mat-form-field class="w-100">
+              <mat-label>City</mat-label>
+              <input formControlName="city" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+            <mat-form-field class="w-100">
+              <mat-label>Postcode</mat-label>
+              <input formControlName="postCode"
+                     type="number"
+                     matInput>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-6">
+            <mat-form-field class="w-100">
+              <mat-label>Country</mat-label>
+              <input [readonly]="true"
+                     formControlName="country"
+                     matInput>
+              <mat-icon matSuffix>info</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="w-100">
+              <mat-label>Pickup day</mat-label>
+              <input matInput
+                     formControlName="date"
+                     [matDatepicker]="picker">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
         </div>
