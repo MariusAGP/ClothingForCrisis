@@ -7,17 +7,29 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {MobileHeaderNavComponent} from "./feature/navigation/mobile-header-nav/mobile-header-nav.component";
 import {DesktopHeaderNavComponent} from "./feature/navigation/desktop-header-nav/desktop-header-nav.component";
 import {MatToolbar} from "@angular/material/toolbar";
+import {MatIcon} from "@angular/material/icon";
+import {ReactiveFormsModule} from "@angular/forms";
+import {DonationModule} from "./feature/donation/donation.module";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconButton} from "@angular/material/button";
+import { ThemeToggleButtonComponent } from './shared/theming/theme-toggle-button/theme-toggle-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DesktopHeaderNavComponent,
     MobileHeaderNavComponent,
+    ThemeToggleButtonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatToolbar
+    MatToolbar,
+    MatIcon,
+    ReactiveFormsModule,
+    DonationModule,
+    MatFormFieldModule,
+    MatIconButton
   ],
   providers: [
     provideAnimationsAsync()
