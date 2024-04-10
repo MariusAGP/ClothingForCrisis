@@ -1,4 +1,5 @@
 <header>
-  <app-desktop-header-nav></app-desktop-header-nav>
+  <app-desktop-header-nav *ngIf="!isMobile"></app-desktop-header-nav>
+  <app-mobile-header-nav *ngIf="isMobile"></app-mobile-header-nav>
 </header>
 <router-outlet></router-outlet>

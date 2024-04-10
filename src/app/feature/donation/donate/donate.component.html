@@ -1,1 +1,29 @@
-<p>donate works!</p>
+<div class="container">
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-5">
+      <h2>Add Donation:</h2>
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <mat-slide-toggle color="primary" formControlName="isPickUp">
+              <div>Pick Up</div>
+            </mat-slide-toggle>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12 d-flex justify-content-center">
+            <mat-form-field>
+              <mat-label>Crisis Country</mat-label>
+              <mat-select formControlName="crisisCountry" placeholder="Select country">
+                <mat-option *ngFor="let crisisCountry of crisisCountries" [value]="crisisCountry">
+                  {{crisisCountry}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
