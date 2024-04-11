@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormGroup} from "@angular/forms";
 import {DonationFormService} from "../services/donation-form.service";
 import {startWith, Subject, takeUntil} from "rxjs";
+import {ThemeService} from "../../../shared/theming/theme.service";
 
 @Component({
   selector: 'app-donate',
@@ -14,8 +15,10 @@ export class DonateComponent implements OnInit, OnDestroy {
   public clothingTypes: string[] = ['Shirts', 'Pants', 'Jackets', 'Shoes', 'Accessories'];
   private $destroyed: Subject<void> = new Subject<void>();
 
-  constructor(private donationFormService: DonationFormService) {
-  }
+  constructor(
+    public themeService: ThemeService,
+    private donationFormService: DonationFormService
+  ) {}
 
   get clothesFormArray(): FormArray {
     return this.form.get('clothes') as FormArray<FormGroup>;
@@ -63,6 +66,4 @@ export class DonateComponent implements OnInit, OnDestroy {
       }
     })
   }
-
-  protected readonly FormGroup = FormGroup;
 }

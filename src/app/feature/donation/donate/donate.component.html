@@ -1,5 +1,33 @@
 <div class="container">
   <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2 d-none d-sm-block border-radius-custom" [ngClass]="themeService.isDarkMode() ? 'background-dark' : 'background-light'">
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="progress-circle">
+          <mat-icon style="color: white">looks_one</mat-icon>
+        </div>
+      </div>
+
+      <div class="row mt-2 d-flex justify-content-center">
+        <mat-progress-bar class="progress-bar"></mat-progress-bar>
+      </div>
+
+      <div class="row d-flex justify-content-center" style="margin-top: 6.5rem">
+        <div class="progress-circle">
+          <mat-icon style="color: white">looks_two</mat-icon>
+        </div>
+      </div>
+
+      <div class="row mt-2 d-flex justify-content-center">
+        <mat-progress-bar class="progress-bar"></mat-progress-bar>
+      </div>
+
+      <div class="row d-flex justify-content-center" style="margin-top: 6.5rem">
+        <div class="progress-circle">
+          <mat-icon style="color: white">check</mat-icon>
+        </div>
+      </div>
+    </div>
+
     <div class="col-lg-5 col-md-5 col-sm-8 col-xs-8">
       <h2>Clothing:</h2>
       <mat-divider class="custom-mat-divider"></mat-divider>

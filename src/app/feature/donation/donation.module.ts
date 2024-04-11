@@ -14,6 +14,7 @@ import {MatIconButton} from "@angular/material/button";
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {MatDivider} from "@angular/material/divider";
+import {MatProgressBar} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -22,23 +23,24 @@ import {MatDivider} from "@angular/material/divider";
     DonationConfirmationComponent,
     DonationHistoryComponent,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatSlideToggle,
-    MatFormFieldModule,
-    MatSelect,
-    MatOption,
-    MatRadioGroup,
-    MatRadioButton,
-    MatInput,
-    MatIcon,
-    MatIconButton,
-    MatDatepickerToggle,
-    MatDatepicker,
-    MatDatepickerInput,
-    MatDivider,
-  ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatSlideToggle,
+        MatFormFieldModule,
+        MatSelect,
+        MatOption,
+        MatRadioGroup,
+        MatRadioButton,
+        MatInput,
+        MatIcon,
+        MatIconButton,
+        MatDatepickerToggle,
+        MatDatepicker,
+        MatDatepickerInput,
+        MatDivider,
+        MatProgressBar,
+    ],
   providers: [
     provideNativeDateAdapter()
   ]
