@@ -1,5 +1,12 @@
-<header>
-  <app-desktop-header-nav *ngIf="!isMobile"></app-desktop-header-nav>
-  <app-mobile-header-nav *ngIf="isMobile"></app-mobile-header-nav>
-</header>
-<router-outlet></router-outlet>
+<div class="d-flex flex-column min-vh-100">
+  <header class="mb-auto">
+    <app-desktop-header-nav *ngIf="!isMobile"></app-desktop-header-nav>
+    <app-mobile-header-nav *ngIf="isMobile"></app-mobile-header-nav>
+  </header>
+  <div class="mt-5 mb-5 flex-grow-1">
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <app-footer class="footer-bottom"></app-footer>
+  </footer>
+</div>
