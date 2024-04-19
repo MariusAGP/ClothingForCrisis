@@ -13,6 +13,7 @@ import {DonationModule} from "./feature/donation/donation.module";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconButton} from "@angular/material/button";
 import { ThemeToggleButtonComponent } from './shared/theming/theme-toggle-button/theme-toggle-button.component';
+import { FooterComponent } from './feature/navigation/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ThemeToggleButtonComponent } from './shared/theming/theme-toggle-button
     DesktopHeaderNavComponent,
     MobileHeaderNavComponent,
     ThemeToggleButtonComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
