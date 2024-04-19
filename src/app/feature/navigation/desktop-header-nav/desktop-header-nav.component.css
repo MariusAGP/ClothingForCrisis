@@ -1,0 +1,14 @@
+.active-link {
+  opacity: 1.0!important;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.inactive-link {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.inactive-link:hover {
+  opacity: 0.95!important;
+}
