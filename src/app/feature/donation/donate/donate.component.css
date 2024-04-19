@@ -1,0 +1,46 @@
+.custom-mat-divider {
+  --mat-divider-width: 3px;
+}
+
+.background-light {
+  background-color: #3f51b5;
+}
+
+.background-dark {
+  background-color: #e91e63;
+}
+
+.border-radius-custom {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+.progress-circle {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 5px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  background: white;
+  transform: rotate(90deg);
+  margin-top: 6rem;
+  width: 180px;
+
+  @media (max-width: 1150px) {
+    margin-top: 5.5rem;
+  }
+
+  @media (max-width: 990px) {
+    margin-top: 6rem;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 5rem;
+    min-width: 130px;
+  }
+}

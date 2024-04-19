@@ -10,20 +10,24 @@ export class DonationFormService {
 
   public buildForm(): FormGroup {
     return this.formBuilder.group({
-      clothes: this.formBuilder.array([this.buildClothingGroup()]),
+      clothes: this.formBuilder.array([this.buildClothingGroup()], [Validators.maxLength(5)]), // number of clothing types
       isPickUp: [false],
       crisisCountry: ['', Validators.required],
-      date: ['', Validators.required],
-      time: ['', Validators.required],
+      date: [''],
+      time: [''],
+      name: [''],
+      lastName: [''],
+      street: [''],
+      postCode: ['', Validators.pattern('^2{2}\\d{3}$')],
+      city: [''],
+      country: ['Germany']
     })
   }
 
-  private buildClothingGroup(): FormGroup {
+  public buildClothingGroup(): FormGroup {
     return this.formBuilder.group({
       type: ['', Validators.required],
       quantity: ['', [Validators.required, Validators.min(1)]],
-      size: ['', Validators.required],
-      condition: ['', Validators.required],
     });
   }
 }
