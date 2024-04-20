@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -34,6 +34,10 @@ import { FooterComponent } from './feature/navigation/footer/footer.component';
     MatIconButton
   ],
   providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'de-DE'
+    },
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

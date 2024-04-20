@@ -37,6 +37,14 @@ body {
   margin-bottom: 3rem;
 }
 
+.br-1 {
+  border-radius: 1rem!important;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
 .dark-theme {
   @include mat.core-color($dark-theme);
   @include mat.button-color($dark-theme);

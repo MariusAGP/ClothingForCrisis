@@ -3,6 +3,9 @@ import {AbstractControl, FormArray, FormGroup} from "@angular/forms";
 import {DonationFormService} from "../services/donation-form.service";
 import {startWith, Subject, takeUntil} from "rxjs";
 import {ThemeService} from "../../../shared/theming/theme.service";
+import {DonationService} from "../services/donation.service";
+import {Donation} from "../models/donation";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-donate',
@@ -17,7 +20,9 @@ export class DonateComponent implements OnInit, OnDestroy {
 
   constructor(
     public themeService: ThemeService,
-    private donationFormService: DonationFormService
+    private donationFormService: DonationFormService,
+    private donationService: DonationService,
+    private router: Router
   ) {}
 
   get clothesFormArray(): FormArray {
@@ -44,6 +49,19 @@ export class DonateComponent implements OnInit, OnDestroy {
 
   public checkIfClothingTypeAlreadySelected(clothingType: string): boolean {
     return !!this.clothesFormArray.controls.find((control: AbstractControl): boolean => control.get('type')?.value === clothingType);
+  }
+
+  public resetForm(): void {
+    this.form.reset();
+  }
+
+  public submitForm(): void {
+    if (this.form.valid) {
+      const value: Donation = this.form.getRawValue();
+      this.donationService.setDonation(value);
+      this.router.navigate(['/confirmation']);
+
+    }
   }
 
   private togglePickUpControls(): void {

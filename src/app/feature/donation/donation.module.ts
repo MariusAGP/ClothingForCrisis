@@ -9,7 +9,7 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
 import {MatInput} from "@angular/material/input";
 import {MatIcon} from "@angular/material/icon";
-import {MatIconButton} from "@angular/material/button";
+import {MatButton, MatIconButton} from "@angular/material/button";
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {MatDivider} from "@angular/material/divider";
@@ -21,24 +21,25 @@ import {MatProgressBar} from "@angular/material/progress-bar";
     DonateComponent,
     DonationConfirmationComponent,
   ],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        MatSlideToggle,
-        MatFormFieldModule,
-        MatSelect,
-        MatOption,
-        MatRadioGroup,
-        MatRadioButton,
-        MatInput,
-        MatIcon,
-        MatIconButton,
-        MatDatepickerToggle,
-        MatDatepicker,
-        MatDatepickerInput,
-        MatDivider,
-        MatProgressBar,
-    ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatSlideToggle,
+    MatFormFieldModule,
+    MatSelect,
+    MatOption,
+    MatRadioGroup,
+    MatRadioButton,
+    MatInput,
+    MatIcon,
+    MatIconButton,
+    MatDatepickerToggle,
+    MatDatepicker,
+    MatDatepickerInput,
+    MatDivider,
+    MatProgressBar,
+    MatButton,
+  ],
   providers: [
     provideNativeDateAdapter()
   ]

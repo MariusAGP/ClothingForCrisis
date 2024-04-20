@@ -162,7 +162,6 @@
               <input matInput
                      formControlName="date"
                      [matDatepicker]="picker">
-              <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -170,5 +169,10 @@
         </div>
       </form>
     </div>
+  </div>
+
+  <div class="row mt-5 justify-content-evenly">
+    <button class="w-25 br-1" type="button" mat-raised-button color="primary" (click)="resetForm()">Zurücksetzen</button>
+    <button class="w-25 br-1" type="button" mat-raised-button color="primary" (click)="submitForm()">Absenden</button>
   </div>
 </div>
