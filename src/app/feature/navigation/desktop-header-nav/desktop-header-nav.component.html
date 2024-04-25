@@ -1,18 +1,21 @@
-<mat-toolbar color="primary" class="row">
-  <div class="col-1"></div>
-  <div class="col-3 d-flex justify-content-center">
-    <span class="fs-5 inactive-link" routerLinkActive="active-link">Spenden Übersicht</span>
-    <span class="fs-5 inactive-link" style="margin-left: 2rem" routerLink="donate" routerLinkActive="active-link">Kleiderspende</span>
+<mat-toolbar class="d-flex justify-content-between custom-toolbar">
+  <div>
+    <img [src]="resolveLogo()" class="logo-toolbar-desktop" alt="Clothing for crisis">
   </div>
-  <div class="col-1"></div>
-  <div class="col-1">
-    <span class="fs-3">Clothing for crisis</span>
-  </div>
-  <div class="col-4"></div>
-  <div class="col-2 d-flex justify-content-center">
-    <button mat-icon-button>
-      <mat-icon>language</mat-icon>
-    </button>
-    <app-theme-toggle-button></app-theme-toggle-button>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-center">
+      <span class="fs-6 inactive-link">Übersicht</span>
+      <span class="fs-6 inactive-link" style="margin-left: 2rem">Über uns</span>
+      <span class="fs-6 inactive-link" style="margin-left: 2rem">Krisengebiete</span>
+      <button mat-raised-button style="margin-left: 2rem" color="primary" routerLink="donate">
+        Kleiderspende
+      </button>
+    </div>
+    <div class="d-flex justify-content-center" style="margin-left: 5rem">
+      <button mat-icon-button>
+        <mat-icon>language</mat-icon>
+      </button>
+      <app-theme-toggle-button></app-theme-toggle-button>
+    </div>
   </div>
 </mat-toolbar>

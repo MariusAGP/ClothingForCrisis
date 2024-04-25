@@ -1,1 +1,102 @@
-<p>donation-confirmation works!</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-10">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+          <mat-icon class="check-icon">check_circle</mat-icon>
+        </div>
+      </div>
+
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+          <h1 class="fw-bold">Danke für deine Spende!</h1>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
+          <h4>Du hast folgende Informationen zur Kleiderspende angegeben:</h4>
+        </div>
+      </div>
+
+      <ng-container *ngIf="donationService.getDonation() | async as donation else loadingIndicator">
+        <div class="row mt-2 d-flex justify-content-center">
+          <div class="col-12 d-flex justify-content-center">
+            <mat-card class="w-75 br-1">
+              <mat-card-title>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-12 d-flex justify-content-center">
+                    <p>{{'Deine Spende geht an: ' + donation.crisisCountry}}</p>
+                  </div>
+                </div>
+              </mat-card-title>
+              <mat-card-content>
+                <ng-container *ngFor="let clothing of donation.clothes">
+                  <div class="row mt-2 d-flex justify-content-between">
+                    <div class="col-2">
+                      <p>{{clothing.type}}</p>
+                    </div>
+                    <div class="col-2">
+                      <p class="fw-bold">{{clothing.quantity}}</p>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <div class="row d-flex justify-content-center">
+                  <div class="col-12">
+                    <mat-divider></mat-divider>
+                  </div>
+                </div>
+
+                <div class="row mt-2 d-flex justify-content-between">
+                  <div class="col-2">
+                    <p class="fw-bold">Gesamt</p>
+                  </div>
+                  <div class="col-2">
+                    <p class="fw-bold">{{donation.clothes | totalClothesCount}}</p>
+                  </div>
+                </div>
+
+                <div class="row mt-2">
+                  <div class="col-12">
+                    <p>Wie kommen die Kleider zu uns?</p>
+                  </div>
+                </div>
+
+                <div *ngIf="donation.isPickUp" class="row mt-2">
+                  <div class="col-12">
+                    <p>{{'Wir holen die Kleider am ' + (donation.date | date) + ' bei der von dir angegebenen Adresse ab. Der Fahrer kommt zwischen 12-13 Uhr.'}}</p>
+                  </div>
+                </div>
+
+                <div *ngIf="donation.isPickUp" class="row">
+                  <div class="col-12">
+                    <address>
+                      {{donation.name + ' ' + donation.lastName}}<br>
+                      {{donation.street}}<br>
+                      {{donation.postCode + ', ' + donation.city}}<br>
+                    </address>
+                  </div>
+                </div>
+
+                <div *ngIf="!donation.isPickUp" class="row mt-2">
+                  <div class="col-12">
+                    <p>{{'Du bringst die Kleider während den Öffnungszeiten einfach vorbei. Wir haben Mo. bis Fr. von 12:00 - 18:00 Uhr geöffnet.'}}</p>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #loadingIndicator>
+        <div class="row mt-2 d-flex justify-content-center">
+          <div class="col-12 d-flex justify-content-center">
+            <mat-spinner></mat-spinner>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

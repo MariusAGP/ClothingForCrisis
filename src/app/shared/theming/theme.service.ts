@@ -19,4 +19,12 @@ export class ThemeService {
       document.body.classList.remove('dark-theme');
     }
   }
+
+  getThemedLogo(): string {
+    if (this.isDarkMode()) {
+      return 'assets/images/logo_big_dark.png'
+    } else {
+      return 'assets/images/logo_big_light.png'
+    }
+  }
 }

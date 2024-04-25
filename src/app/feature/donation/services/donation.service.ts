@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {Donation} from "../models/donation";
 
 @Injectable({
@@ -7,8 +7,8 @@ import {Donation} from "../models/donation";
 })
 export class DonationService {
 
-  private donationSubject: Subject<Donation> = new Subject<Donation>();
-  private $donation: Observable<Donation> = this.donationSubject.asObservable();
+  private donationSubject: BehaviorSubject<Donation | null> = new BehaviorSubject<Donation | null>(null);
+  private $donation: Observable<Donation | null> = this.donationSubject.asObservable();
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class DonationService {
     this.donationSubject.next(donation);
   }
 
-  public getDonation(): Observable<Donation> {
+  public getDonation(): Observable<Donation | null> {
     return this.$donation;
   }
 }

@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+@import "../../../../green-theme" ;
+
+.logo-toolbar-mobile {
+  width: auto;
+  height: 2rem;
+  margin-left: 1rem;
+}
+
+.custom-toolbar {
+  background-color: transparent;
+  border-bottom: 4px solid mat.get-color-from-palette($custom-green-gradient, 200);
+}

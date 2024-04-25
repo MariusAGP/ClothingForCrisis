@@ -14,12 +14,17 @@ import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/m
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {MatDivider} from "@angular/material/divider";
 import {MatProgressBar} from "@angular/material/progress-bar";
+import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {MatExpansionModule, MatExpansionPanel, MatExpansionPanelTitle} from "@angular/material/expansion";
+import {TotalClothesCountPipe} from "./pipes/total-clothes-count.pipe";
 
 
 @NgModule({
   declarations: [
     DonateComponent,
     DonationConfirmationComponent,
+    TotalClothesCountPipe,
   ],
   imports: [
     CommonModule,
@@ -39,9 +44,17 @@ import {MatProgressBar} from "@angular/material/progress-bar";
     MatDivider,
     MatProgressBar,
     MatButton,
+    MatCard,
+    MatCardContent,
+    MatProgressSpinner,
+    MatExpansionPanel,
+    MatExpansionPanelTitle,
+    MatExpansionModule,
+    MatCardTitle,
   ],
   providers: [
-    provideNativeDateAdapter()
-  ]
+    provideNativeDateAdapter(),
+    TotalClothesCountPipe
+  ],
 })
 export class DonationModule { }

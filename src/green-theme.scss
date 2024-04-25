@@ -1,0 +1,35 @@
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+
+$custom-green-gradient: (
+  50: #2b3a1b,
+  100: #32521f,
+  200: #396924,
+  300: #407f28,
+  400: #48972c,
+  500: #4fae30,
+  600: #60c13f,
+  700: #72d34f,
+  800: #83e65f,
+  900: #95f96e,
+  A100: #66da3d,
+  A200: #4ec836,
+  A400: #36b72f,
+  A700: #2da72a,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $light-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
