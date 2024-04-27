@@ -6,16 +6,16 @@
 // dark theme
 $dark-theme: mat.define-dark-theme((
   color: (
-    primary: mat.define-palette($custom-green-gradient, 200),
-    accent: mat.define-palette($custom-green-gradient),
+    primary: mat.define-palette($custom-green-theme, 200),
+    accent: mat.define-palette($custom-green-theme),
   ),
 ));
 
 // light theme
 $light-theme: mat.define-light-theme((
   color: (
-    primary: mat.define-palette($custom-green-gradient, 200),
-    accent: mat.define-palette($custom-green-gradient),
+    primary: mat.define-palette($custom-green-theme, 200),
+    accent: mat.define-palette($custom-green-theme),
   ),
   typography: mat.define-typography-config(
     $font-family: 'JuliusSansOne-Regular'

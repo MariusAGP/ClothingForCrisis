@@ -8,10 +8,6 @@ import {ThemeService} from "../../../shared/theming/theme.service";
 })
 export class DesktopHeaderNavComponent {
 
-  constructor(private themeService: ThemeService) {}
-
-  public resolveLogo(): string {
-    return this.themeService.getThemedLogo();
-  }
+  constructor(public themeService: ThemeService) {}
 
 }

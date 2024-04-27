@@ -8,11 +8,7 @@ import {ThemeService} from "../../../shared/theming/theme.service";
 })
 export class MobileHeaderNavComponent {
 
-  constructor(private themeService: ThemeService) {
-  }
-
-  resolveLogo(): string {
-    return this.themeService.getThemedLogo();
+  constructor(public themeService: ThemeService) {
   }
 
 }
