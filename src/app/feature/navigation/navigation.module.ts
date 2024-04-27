@@ -8,6 +8,10 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {MatIcon} from "@angular/material/icon";
 import {MatButton, MatIconButton} from "@angular/material/button";
 import {AppRoutingModule} from "../../app-routing.module";
+import { LegalNoticeComponent } from './footer/legal-notice/legal-notice.component';
+import { DataProtectionComponent } from './footer/data-protection/data-protection.component';
+import {MatDrawer, MatDrawerContainer, MatSidenavModule} from "@angular/material/sidenav";
+import {MatListItem, MatNavList} from "@angular/material/list";
 
 
 
@@ -17,6 +21,8 @@ import {AppRoutingModule} from "../../app-routing.module";
     MobileHeaderNavComponent,
     ThemeToggleButtonComponent,
     FooterComponent,
+    LegalNoticeComponent,
+    DataProtectionComponent,
   ],
   exports: [
     FooterComponent,
@@ -29,7 +35,12 @@ import {AppRoutingModule} from "../../app-routing.module";
     MatToolbar,
     MatIcon,
     MatIconButton,
-    MatButton
+    MatButton,
+    MatDrawer,
+    MatDrawerContainer,
+    MatSidenavModule,
+    MatNavList,
+    MatListItem
   ]
 })
 export class NavigationModule { }
