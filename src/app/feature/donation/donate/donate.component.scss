@@ -1,13 +1,16 @@
+@use '@angular/material' as mat;
+@import "../../../../green-theme" ;
+
 .custom-mat-divider {
   --mat-divider-width: 3px;
 }
 
-.background-light {
-  background-color: #3f51b5;
+.background-decorator {
+  background-color: mat.get-color-from-palette($custom-green-theme, 200);
 }
 
-.background-dark {
-  background-color: #e91e63;
+.mat-background-color {
+  background-color: var(--mat-app-background-color);
 }
 
 .border-radius-custom {

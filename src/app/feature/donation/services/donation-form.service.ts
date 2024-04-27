@@ -11,7 +11,7 @@ export class DonationFormService {
   public buildForm(): FormGroup {
     return this.formBuilder.group({
       clothes: this.formBuilder.array([this.buildClothingGroup()], [Validators.maxLength(5)]), // number of clothing types
-      isPickUp: [false],
+      isPickUp: [false, Validators.required],
       crisisCountry: ['', Validators.required],
       date: [''],
       time: [''],

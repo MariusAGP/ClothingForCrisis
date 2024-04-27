@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="custom-toolbar">
   <div class="col-1">
     <button mat-icon-button>
       <mat-icon>menu</mat-icon>
@@ -6,7 +6,7 @@
   </div>
   <div class="col-1"></div>
   <div class="col-1">
-    <span>Clothing for crisis</span>
+    <img [src]="themeService.getThemedLogo()" class="logo-toolbar-mobile" alt="Clothing for crisis">
   </div>
   <div class="col-7"></div>
   <div class="col-2 d-flex justify-content-center">

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2 d-none d-sm-block border-radius-custom" [ngClass]="themeService.isDarkMode() ? 'background-dark' : 'background-light'">
+    <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2 d-none d-sm-block border-radius-custom background-decorator">
       <div class="row mt-5 d-flex justify-content-center">
         <div class="progress-circle">
           <mat-icon style="color: white">looks_one</mat-icon>
@@ -162,7 +162,6 @@
               <input matInput
                      formControlName="date"
                      [matDatepicker]="picker">
-              <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -170,5 +169,10 @@
         </div>
       </form>
     </div>
+  </div>
+
+  <div class="row mt-5 justify-content-evenly">
+    <button class="w-25 br-1" type="button" mat-raised-button color="primary" (click)="resetForm()">Zurücksetzen</button>
+    <button class="w-25 br-1" type="button" mat-raised-button color="primary" (click)="submitForm()">Absenden</button>
   </div>
 </div>

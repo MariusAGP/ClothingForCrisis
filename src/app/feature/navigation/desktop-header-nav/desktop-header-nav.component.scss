@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+@import "../../../../green-theme" ;
+
+.active-link {
+  opacity: 1.0!important;
+}
+
+.inactive-link {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.inactive-link:hover {
+  opacity: 0.95!important;
+}
+
+.logo-toolbar-desktop {
+  width: auto;
+  height: 3rem;
+  margin-left: 1rem;
+}
+
+.custom-toolbar {
+  background-color: transparent;
+  border-bottom: 4px solid mat.get-color-from-palette($custom-green-theme, 200);
+}
