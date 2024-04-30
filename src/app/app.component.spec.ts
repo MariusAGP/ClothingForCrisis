@@ -1,8 +1,15 @@
-import { TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {BreakpointObserver, Breakpoints, BreakpointState} from "@angular/cdk/layout";
+import {of} from "rxjs";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let breakPointObserver: BreakpointObserver;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -11,25 +18,37 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
   });
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    breakPointObserver = TestBed.inject(BreakpointObserver);
+    component = fixture.componentInstance;
+  })
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it(`should have as title 'ClothingForCrisis'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ClothingForCrisis');
+    expect(component.title).toEqual('ClothingForCrisis');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ClothingForCrisis');
-  });
+  describe('ngOnInit', () => {
+    it('should listen to breakpoints and set isMobile to true', () => {
+      const returnValue: BreakpointState = {matches: true} as BreakpointState;
+      jest.spyOn(breakPointObserver, 'observe').mockReturnValue(of(returnValue))
+      component.ngOnInit();
+      expect(component.isMobile).toBeTruthy();
+    });
+
+    it('should listen to breakpoints and set isMobile to false', () => {
+      const returnValue: BreakpointState = {matches: false} as BreakpointState;
+      jest.spyOn(breakPointObserver, 'observe').mockReturnValue(of(returnValue))
+      component.ngOnInit();
+      expect(component.isMobile).toBeFalsy();
+    });
+  })
 });

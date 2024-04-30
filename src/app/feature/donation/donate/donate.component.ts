@@ -51,7 +51,7 @@ export class DonateComponent implements OnInit, OnDestroy {
   }
 
   public checkIfClothingTypeAlreadySelected(clothingType: string): boolean {
-    return !!this.clothesFormArray.controls.find((control: AbstractControl): boolean => control.get('type')?.value === clothingType);
+    return !!this.clothesFormArray.controls.find((control: AbstractControl): boolean => control.get('type')?.value === clothingType); // used to prevent duplicate type
   }
 
   public resetForm(): void {
@@ -59,7 +59,7 @@ export class DonateComponent implements OnInit, OnDestroy {
   }
 
   public submitForm(): void {
-    this.form.markAllAsTouched();
+    this.form.markAllAsTouched(); // check for any not filled fields and mark them as touched to display red error outline
     if (this.form.valid) {
       const value: Donation = this.form.getRawValue();
       this.donationService.setDonation(value);
@@ -70,18 +70,16 @@ export class DonateComponent implements OnInit, OnDestroy {
   private togglePickUpControls(): void {
     this.form.get('isPickUp')?.valueChanges.pipe(
       takeUntil(this.$destroyed),
-      startWith(this.form.get('isPickUp')?.value)
-    ).subscribe((value: boolean) => {
-      if (value) {
-        this.toggleRequiredNameControls(value);
+      startWith(this.form.get('isPickUp')?.value) // to start with initial value which is false
+    ).subscribe((isPickUp: boolean) => {
+      if (isPickUp) {
+        this.toggleRequiredNameControls(isPickUp);
         this.enableControlAndMakeRequired('street');
-        this.enableControlAndMakeRequired('country');
         this.enableControlAndMakeRequired('postCode');
         this.enableControlAndMakeRequired('city');
       } else {
-        this.toggleRequiredNameControls(value);
+        this.toggleRequiredNameControls(isPickUp);
         this.disableControlAndMakeOptional('street');
-        this.disableControlAndMakeOptional('country');
         this.disableControlAndMakeOptional('postCode');
         this.disableControlAndMakeOptional('city');
       }
