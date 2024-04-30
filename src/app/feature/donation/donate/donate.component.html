@@ -8,7 +8,7 @@
       </div>
 
       <div class="row mt-2 d-flex justify-content-center">
-        <mat-progress-bar class="progress-bar"></mat-progress-bar>
+        <mat-progress-bar color="accent" [value]="progress1" class="progress-bar"></mat-progress-bar>
       </div>
 
       <div class="row d-flex justify-content-center" style="margin-top: 6.5rem">
@@ -18,7 +18,7 @@
       </div>
 
       <div class="row mt-2 d-flex justify-content-center">
-        <mat-progress-bar class="progress-bar"></mat-progress-bar>
+        <mat-progress-bar color="accent" [value]="progress2" class="progress-bar"></mat-progress-bar>
       </div>
 
       <div class="row d-flex justify-content-center" style="margin-top: 6.5rem">
@@ -149,21 +149,22 @@
         <div class="row mt-2">
           <div class="col-6">
             <mat-form-field class="w-100">
-              <mat-label>Land</mat-label>
-              <input [readonly]="true"
-                     formControlName="country"
-                     matInput>
-              <mat-icon matSuffix>info</mat-icon>
-            </mat-form-field>
-          </div>
-          <div class="col-6">
-            <mat-form-field class="w-100">
-              <mat-label>Tag der Abholung</mat-label>
+              <mat-label>Tag</mat-label>
               <input matInput
                      formControlName="date"
                      [matDatepicker]="picker">
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="w-100">
+              <mat-label>Uhrzeit</mat-label>
+              <mat-select formControlName="time">
+                <mat-option *ngFor="let timeSlot of timeSlots" [value]="timeSlot">
+                  {{timeSlot}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
         </div>
