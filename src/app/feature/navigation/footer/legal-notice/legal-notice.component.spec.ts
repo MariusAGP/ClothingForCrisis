@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MobileHeaderNavComponent } from './mobile-header-nav.component';
+import { LegalNoticeComponent } from './legal-notice.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
-describe('MobileHeaderNavComponent', () => {
-  let component: MobileHeaderNavComponent;
-  let fixture: ComponentFixture<MobileHeaderNavComponent>;
+describe('LegalNoticeComponent', () => {
+  let component: LegalNoticeComponent;
+  let fixture: ComponentFixture<LegalNoticeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MobileHeaderNavComponent],
+      declarations: [LegalNoticeComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MobileHeaderNavComponent);
+    fixture = TestBed.createComponent(LegalNoticeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

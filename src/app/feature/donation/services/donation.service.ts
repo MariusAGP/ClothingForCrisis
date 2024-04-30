@@ -13,7 +13,6 @@ export class DonationService {
   constructor() { }
 
   public setDonation(donation: Donation): void {
-    console.log(donation);
     this.donationSubject.next(donation);
   }
 

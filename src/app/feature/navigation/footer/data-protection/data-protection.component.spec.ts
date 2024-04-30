@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MobileHeaderNavComponent } from './mobile-header-nav.component';
+import { DataProtectionComponent } from './data-protection.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
-describe('MobileHeaderNavComponent', () => {
-  let component: MobileHeaderNavComponent;
-  let fixture: ComponentFixture<MobileHeaderNavComponent>;
+describe('DataProtectionComponent', () => {
+  let component: DataProtectionComponent;
+  let fixture: ComponentFixture<DataProtectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MobileHeaderNavComponent],
+      declarations: [DataProtectionComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MobileHeaderNavComponent);
+    fixture = TestBed.createComponent(DataProtectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

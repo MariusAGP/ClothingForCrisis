@@ -59,13 +59,13 @@
 
                 <div class="row mt-2">
                   <div class="col-12">
-                    <p>Wie kommen die Kleider zu uns?</p>
+                    <p>Wie geht es jetzt weiter?</p>
                   </div>
                 </div>
 
                 <div *ngIf="donation.isPickUp" class="row mt-2">
                   <div class="col-12">
-                    <p>{{'Wir holen die Kleider am ' + (donation.date | date) + ' bei der von dir angegebenen Adresse ab. Der Fahrer kommt zwischen 12-13 Uhr.'}}</p>
+                    <p>{{'Wir holen die Kleider am ' + (donation.date | date) + ' bei der von dir angegebenen Adresse ab. Der Fahrer kommt um ' + donation.time + ' Uhr'}}</p>
                   </div>
                 </div>
 
@@ -81,7 +81,7 @@
 
                 <div *ngIf="!donation.isPickUp" class="row mt-2">
                   <div class="col-12">
-                    <p>{{'Du bringst die Kleider während den Öffnungszeiten einfach vorbei. Wir haben Mo. bis Fr. von 12:00 - 18:00 Uhr geöffnet.'}}</p>
+                    <p>{{'Du bringst die Kleider am ' + (donation.date | date) + ' um ' + donation.time + ' Uhr vorbei.'}}</p>
                   </div>
                 </div>
               </mat-card-content>

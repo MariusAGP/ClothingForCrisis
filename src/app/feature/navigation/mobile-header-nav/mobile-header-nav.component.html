@@ -1,6 +1,6 @@
 <mat-toolbar class="custom-toolbar">
   <div class="col-1">
-    <button mat-icon-button>
+    <button mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
@@ -16,3 +16,26 @@
     <app-theme-toggle-button></app-theme-toggle-button>
   </div>
 </mat-toolbar>
+<mat-drawer-container>
+  <mat-drawer #drawer mode="over">
+    <mat-nav-list>
+      <mat-list-item routerLink="donate">
+        <span>Kleiderspende</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span>Übersicht</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span>Über uns</span>
+      </mat-list-item>
+      <mat-list-item>
+        <span>Krisengebiete</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="mt-5 mb-5 flex-grow-1 min-vh-100">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

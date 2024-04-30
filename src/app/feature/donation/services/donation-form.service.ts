@@ -13,14 +13,13 @@ export class DonationFormService {
       clothes: this.formBuilder.array([this.buildClothingGroup()], [Validators.maxLength(5)]), // number of clothing types
       isPickUp: [false, Validators.required],
       crisisCountry: ['', Validators.required],
-      date: [''],
-      time: [''],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
       name: [''],
       lastName: [''],
       street: [''],
       postCode: ['', Validators.pattern('^2{2}\\d{3}$')],
       city: [''],
-      country: ['Germany']
     })
   }
 
