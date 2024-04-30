@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MobileHeaderNavComponent } from './mobile-header-nav.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
 
 describe('MobileHeaderNavComponent', () => {
   let component: MobileHeaderNavComponent;
@@ -8,10 +9,11 @@ describe('MobileHeaderNavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MobileHeaderNavComponent]
+      declarations: [MobileHeaderNavComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(MobileHeaderNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
