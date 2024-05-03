@@ -10,7 +10,9 @@ export class DonationFormService {
 
   public buildForm(): FormGroup {
     return this.formBuilder.group({
-      clothes: this.formBuilder.array([this.buildClothingGroup()], [Validators.maxLength(5)]), // number of clothing types
+      clothes: this.formBuilder.array(
+        [this.buildClothingGroup()],
+        [Validators.maxLength(5)]), // number of clothing types
       isPickUp: [false, Validators.required],
       crisisCountry: ['', Validators.required],
       date: ['', Validators.required],
@@ -18,7 +20,7 @@ export class DonationFormService {
       name: [''],
       lastName: [''],
       street: [''],
-      postCode: ['', Validators.pattern('^2{2}\\d{3}$')],
+      postCode: ['', Validators.pattern('^2{2}\\d{3}$')], // start with 2 occurrences of 2 and 5 digits long
       city: [''],
     })
   }
@@ -26,7 +28,7 @@ export class DonationFormService {
   public buildClothingGroup(): FormGroup {
     return this.formBuilder.group({
       type: ['', Validators.required],
-      quantity: ['', [Validators.required, Validators.min(1)]],
+      quantity: ['', [Validators.required, Validators.min(1)]], // cannot donate 0 clothes
     });
   }
 }
