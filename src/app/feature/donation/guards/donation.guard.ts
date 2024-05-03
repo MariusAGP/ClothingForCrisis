@@ -11,7 +11,7 @@ export const donationGuard: CanActivateFn = (route: ActivatedRouteSnapshot, stat
   return donationService.getDonation().pipe(
     map((donation: Donation | null) => {
       if (!!donation) {
-        return true;
+        return true; // used to check if donation in store exists. If not do not allow navigation to confirmation page.
       } else {
         router.navigate(['donate']);
         return false;

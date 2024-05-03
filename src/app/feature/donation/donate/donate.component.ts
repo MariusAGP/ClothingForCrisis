@@ -73,31 +73,19 @@ export class DonateComponent implements OnInit, OnDestroy {
       startWith(this.form.get('isPickUp')?.value) // to start with initial value which is false
     ).subscribe((isPickUp: boolean) => {
       if (isPickUp) {
-        this.toggleRequiredNameControls(isPickUp);
+        this.enableControlAndMakeRequired('name');
+        this.enableControlAndMakeRequired('lastName');
         this.enableControlAndMakeRequired('street');
         this.enableControlAndMakeRequired('postCode');
         this.enableControlAndMakeRequired('city');
       } else {
-        this.toggleRequiredNameControls(isPickUp);
+        this.disableControlAndMakeOptional('name', false);
+        this.disableControlAndMakeOptional('lastName', false);
         this.disableControlAndMakeOptional('street');
         this.disableControlAndMakeOptional('postCode');
         this.disableControlAndMakeOptional('city');
       }
     })
-  }
-
-  private toggleRequiredNameControls(required: boolean): void {
-    if (required) {
-      this.form.get('name')?.setValidators([Validators.required]);
-      this.form.get('lastName')?.setValidators([Validators.required]);
-      this.form.get('name')?.updateValueAndValidity();
-      this.form.get('lastName')?.updateValueAndValidity();
-    } else {
-      this.form.get('name')?.setValidators(null);
-      this.form.get('lastName')?.setValidators(null);
-      this.form.get('name')?.updateValueAndValidity();
-      this.form.get('lastName')?.updateValueAndValidity();
-    }
   }
 
   private enableControlAndMakeRequired(formControlName: string): void {
@@ -106,10 +94,10 @@ export class DonateComponent implements OnInit, OnDestroy {
     this.form.get(formControlName)?.updateValueAndValidity();
   }
 
-  private disableControlAndMakeOptional(formControlName: string): void {
-    this.form.get(formControlName)?.disable();
+  private disableControlAndMakeOptional(formControlName: string, setDisabled: boolean = true): void {
+    setDisabled ? this.form.get(formControlName)?.disable() : null; // this line is here to only disable form controls that really should be disabled
     this.form.get(formControlName)?.removeValidators([Validators.required]);
-    this.form.get(formControlName)?.updateValueAndValidity();
+    this.form.get(formControlName)?.updateValueAndValidity(); // required to let form control know validators changed
   }
 
   private calcFormProgress(): void {
@@ -132,7 +120,7 @@ export class DonateComponent implements OnInit, OnDestroy {
 
     const totalFilledFields: number = filledCountry + filledFieldsClothes;
 
-    this.progress1 = (totalFilledFields / ((donation.clothes.length * 2) + 1)) * 100;
+    this.progress1 = (totalFilledFields / ((donation.clothes.length * 2) + 1)) * 100; // percentage of filled fields
   }
 
   private calcProgress2(donation: Donation): void {
@@ -152,6 +140,6 @@ export class DonateComponent implements OnInit, OnDestroy {
     }
     const totalFieldsToFill: number = donation.isPickUp ? 7 : 2;
 
-    this.progress2 = (totalFilledFields / totalFieldsToFill) * 100;
+    this.progress2 = (totalFilledFields / totalFieldsToFill) * 100; // percentage of filled fields
   }
 }
